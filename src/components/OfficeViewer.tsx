@@ -1,3 +1,4 @@
+import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { cameraViews } from "../config/camera";
@@ -32,6 +33,7 @@ export default function OfficeViewer() {
           />
           <LogCameraPosition />
           <OfficeModel />
+          <Environment preset="apartment" />
         </Suspense>
       </Canvas>
     </div>
