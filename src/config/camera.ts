@@ -1,6 +1,12 @@
 import { Vector3 } from "three";
 
-export const cameraViews = [
+export type CameraView = {
+  position: Vector3;
+  direction: Vector3;
+  fov: number;
+};
+
+export const cameraViews: CameraView[] = [
   {
     // Desk from door
     position: new Vector3(3.11, 0.98, -0.7),
