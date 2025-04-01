@@ -2,11 +2,14 @@ import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { cameraViews } from "../config/camera";
+import { DEBUG } from "../config/env";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import { useResetScroll } from "../hooks/useResetScroll";
 import useStopScrollOnViewChange from "../hooks/useStopScrollOnViewChange";
 import CameraController from "./CameraController";
+import ContactFormModel from "./ContactFormModel";
 import LogCameraPosition from "./LogCameraPosition";
+import MacBookModel from "./MacBookModel";
 import OfficeModel from "./OfficeModel";
 
 export default function OfficeViewer() {
@@ -36,7 +39,7 @@ export default function OfficeViewer() {
           left: 0,
           width: "100vw",
           height: "100vh",
-          pointerEvents: "none",
+          pointerEvents: DEBUG ? "auto" : "none",
         }}
       >
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
@@ -47,6 +50,8 @@ export default function OfficeViewer() {
           />
           <LogCameraPosition />
           <OfficeModel />
+          <MacBookModel />
+          <ContactFormModel />
           <Environment preset="apartment" />
         </Suspense>
       </Canvas>

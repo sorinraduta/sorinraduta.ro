@@ -26,6 +26,12 @@ export const cameraViews: CameraView[] = [
     fov: 65,
   },
   {
+    // Contact form
+    position: new Vector3(4.911, 1.031, -4.925),
+    direction: new Vector3(0.007, -0.482, 0.876),
+    fov: 65,
+  },
+  {
     // Drawer
     position: new Vector3(3.745, 0.667, -5.29),
     direction: new Vector3(0.581, -0.484, 0.654),

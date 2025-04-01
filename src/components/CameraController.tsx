@@ -4,6 +4,7 @@ import { useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import { Vector3 } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { DEBUG } from "../config/env";
 
 export default function CameraController({
   position,
@@ -33,9 +34,9 @@ export default function CameraController({
       ref={controlsRef}
       makeDefault
       target={target}
-      enableZoom={false}
-      enableRotate={false}
-      enablePan={false}
+      enableZoom={DEBUG ? true : false}
+      enableRotate={DEBUG ? true : false}
+      enablePan={DEBUG ? true : false}
     />
   );
 }
