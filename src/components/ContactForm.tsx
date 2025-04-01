@@ -5,23 +5,24 @@ export default function FormComponent() {
   };
 
   return (
-    <form
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "8px",
-        background: "red",
-      }}
-    >
-      <label>
-        Name:
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="bg-[blue]">
+      <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "8px",
+        }}
+      >
+        <label>
+          Name:
+          <input type="text" name="name" />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
