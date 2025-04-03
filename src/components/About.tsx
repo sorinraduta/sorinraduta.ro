@@ -119,6 +119,8 @@ export default function About() {
             <a
               key={index}
               href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity flex items-center justify-center w-9 h-9 rounded-full bg-gray-100"
               aria-label={social.label}
             >
