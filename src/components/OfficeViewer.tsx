@@ -1,12 +1,14 @@
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
-import { cameraViews } from "../config/camera";
 import { DEBUG } from "../config/env";
+import { cameraViews } from "../config/views";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import { useResetScroll } from "../hooks/useResetScroll";
 import useStopScrollOnViewChange from "../hooks/useStopScrollOnViewChange";
+import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
+import ClipboardModel from "./ClipboardModel";
 import ContactFormModel from "./ContactFormModel";
 import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
@@ -50,7 +52,9 @@ export default function OfficeViewer() {
           />
           <LogCameraPosition />
           <OfficeModel />
+          <ClipboardModel />
           <MacBookModel />
+          <AboutModel />
           <ContactFormModel />
           <Environment preset="apartment" />
         </Suspense>
@@ -58,3 +62,7 @@ export default function OfficeViewer() {
     </div>
   );
 }
+
+// Credits
+// "Non-Realistic Clipboard" (https://skfb.ly/p9q7H) by kareem.noureddine02 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+// "macbook pro M3 16 inch 2024" (https://skfb.ly/oQJZu) by jackbaeten is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

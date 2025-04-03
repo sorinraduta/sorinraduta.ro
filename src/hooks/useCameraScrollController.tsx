@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { CameraView } from "../config/camera";
+import type { CameraView } from "../config/views";
 export const useCameraScrollController = ({
   views,
   setViewIndex,

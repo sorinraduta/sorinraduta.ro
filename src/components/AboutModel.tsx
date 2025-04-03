@@ -1,19 +1,19 @@
 // Scene.tsx
 import { Html } from "@react-three/drei";
-import ContactForm from "./ContactForm";
+import About from "./About";
 
-export default function ContactFormModel() {
+export default function AboutModel() {
   return (
     <>
       <Html
-        position={[4.916, 0.9232, -4.644]}
-        rotation={[0.36, 3.15, 0]}
+        position={[4.203, 0.819, -4.813]}
+        rotation={[1.55, 3.15, -0.291]}
         scale={0.08}
         distanceFactor={3}
         transform
         occlude
       >
-        <ContactForm />
+        <About />
       </Html>
     </>
   );
