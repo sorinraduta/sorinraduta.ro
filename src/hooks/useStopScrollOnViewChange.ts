@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import stopScroll from "../utils/stopScroll";
+import useCameraStore from "./useCameraStore";
 
-const useStopScrollOnViewChange = (cameraPosIndex: number) => {
+const useStopScrollOnViewChange = () => {
+  const { cameraView } = useCameraStore();
+
   useEffect(() => {
     stopScroll();
-  }, [cameraPosIndex]);
+  }, [cameraView]);
 };
 
 export default useStopScrollOnViewChange;

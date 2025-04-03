@@ -1,3 +1,5 @@
+import useCameraStore from "../hooks/useCameraStore";
+
 const hobbies = [
   { name: "Gym", emoji: "🏋🏻‍♂️" },
   { name: "Chess", emoji: "♟️" },
@@ -13,7 +15,7 @@ const socialLinks = [
   {
     name: "GitHub",
     label: "GitHub",
-    url: "https://github.com/johndoe",
+    url: "https://github.com/sorinraduta/",
     svg: (
       <svg
         className="w-5 h-5"
@@ -32,7 +34,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     label: "LinkedIn",
-    url: "https://linkedin.com/in/johndoe",
+    url: "https://www.linkedin.com/in/sorinraduta/",
     svg: (
       <svg
         className="w-5 h-5"
@@ -47,7 +49,7 @@ const socialLinks = [
   {
     name: "X",
     label: "X (formerly Twitter)",
-    url: "https://twitter.com/johndoe",
+    url: "https://x.com/sorinraduta",
     svg: (
       <svg
         className="w-5 h-5"
@@ -62,8 +64,10 @@ const socialLinks = [
 ];
 
 export default function About() {
+  const { setView } = useCameraStore();
+
   const onOpenToWorkClick = () => {
-    alert("onOpenToWorkClick");
+    setView("contact");
   };
 
   return (

@@ -46,9 +46,9 @@ const drawerCameraView: CameraView = {
 };
 
 export const cameraViews: CameraView[] = [
-  aboutCameraView,
-  contactCameraView,
   welcomeCameraView,
   welcome2CameraView,
+  aboutCameraView,
   drawerCameraView,
+  contactCameraView,
 ];

@@ -1,9 +1,9 @@
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { DEBUG } from "../config/env";
-import { cameraViews } from "../config/views";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
+import useCameraStore from "../hooks/useCameraStore";
 import { useResetScroll } from "../hooks/useResetScroll";
 import useStopScrollOnViewChange from "../hooks/useStopScrollOnViewChange";
 import AboutModel from "./AboutModel";
@@ -15,15 +15,11 @@ import MacBookModel from "./MacBookModel";
 import OfficeModel from "./OfficeModel";
 
 export default function OfficeViewer() {
-  const [cameraPosIndex, setCameraPosIndex] = useState(0);
-  const cameraPos = cameraViews[cameraPosIndex];
+  const { cameraView } = useCameraStore();
 
   useResetScroll();
-  useStopScrollOnViewChange(cameraPosIndex); // Stop mouse wheel scrolling
-  useCameraScrollController({
-    views: cameraViews,
-    setViewIndex: setCameraPosIndex,
-  });
+  useStopScrollOnViewChange();
+  useCameraScrollController();
 
   return (
     <div
@@ -34,7 +30,7 @@ export default function OfficeViewer() {
       }}
     >
       <Canvas
-        camera={cameraPos}
+        camera={cameraView}
         style={{
           position: "fixed",
           top: 0,
@@ -47,8 +43,8 @@ export default function OfficeViewer() {
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
         <Suspense fallback={null}>
           <CameraController
-            position={cameraPos.position}
-            direction={cameraPos.direction}
+            position={cameraView.position}
+            direction={cameraView.direction}
           />
           <LogCameraPosition />
           <OfficeModel />
