@@ -5,24 +5,6 @@ export default function FormComponent() {
   };
 
   return (
-    <div className="bg-[blue]">
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-        }}
-      >
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <div className="bg-[#060402]  rounded-t-2xl h-[860px] w-[1310px] text-white"></div>
   );
 }

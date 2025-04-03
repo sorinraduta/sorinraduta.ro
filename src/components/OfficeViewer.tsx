@@ -42,17 +42,19 @@ export default function OfficeViewer() {
       >
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
         <Suspense fallback={null}>
+          <Environment preset="apartment" />
           <CameraController
             position={cameraView.position}
             direction={cameraView.direction}
           />
-          <LogCameraPosition />
+          {DEBUG && <LogCameraPosition />}
           <OfficeModel />
+
           <ClipboardModel />
-          <MacBookModel />
           <AboutModel />
+
+          <MacBookModel />
           <ContactFormModel />
-          <Environment preset="apartment" />
         </Suspense>
       </Canvas>
     </div>
