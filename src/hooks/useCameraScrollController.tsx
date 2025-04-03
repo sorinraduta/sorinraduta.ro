@@ -1,20 +1,34 @@
-import { useEffect } from "react";
-import { cameraViews } from "../config/views";
+import { useCallback, useEffect, useRef } from "react";
+import { throttle } from "../utils/throttle";
 import useCameraStore from "./useCameraStore";
 
-export const useCameraScrollController = () => {
-  const { setCameraViewIndex } = useCameraStore();
+export function useCameraScrollController() {
+  const scrollTicksRef = useRef<number>(0);
+  const { goToNextView, goToPreviousView } = useCameraStore();
+
+  const handleWheel = useCallback(
+    (event: WheelEvent) => {
+      const isScrollingDown = event.deltaY > 0;
+      scrollTicksRef.current = isScrollingDown
+        ? scrollTicksRef.current + 1
+        : scrollTicksRef.current - 1;
+
+      if (scrollTicksRef.current > 5) {
+        goToNextView();
+        scrollTicksRef.current = 0;
+      }
+
+      if (scrollTicksRef.current < -5) {
+        goToPreviousView();
+        scrollTicksRef.current = 0;
+      }
+    },
+    [goToNextView, goToPreviousView]
+  );
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const stepSize = 400;
-      const index = Math.floor(scrollY / stepSize);
-      const newIndex = Math.max(0, Math.min(cameraViews.length - 1, index));
-      setCameraViewIndex(newIndex);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-};
+    const throttledHandleWheel = throttle(handleWheel, 50);
+    window.addEventListener("wheel", throttledHandleWheel);
+    return () => window.removeEventListener("wheel", throttledHandleWheel);
+  }, [handleWheel]);
+}
