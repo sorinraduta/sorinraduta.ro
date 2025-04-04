@@ -17,9 +17,8 @@ export default function Credits() {
       </h1>
       <div className="flex flex-col gap-2">
         {credits.map((credit) => (
-          <div>
+          <div key={credit.url}>
             <a
-              key={credit.url}
               href={credit.url}
               target="_blank"
               rel="noopener noreferrer"
