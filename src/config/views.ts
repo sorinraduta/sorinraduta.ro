@@ -5,7 +5,8 @@ export type CameraViewName =
   | "welcome2"
   | "about"
   | "contact"
-  | "drawer";
+  | "drawer"
+  | "credits";
 
 export type CameraView = {
   name: CameraViewName;
@@ -44,11 +45,18 @@ const drawerCameraView: CameraView = {
   direction: new Vector3(0.581, -0.484, 0.654),
   fov: 65,
 };
+const creditsCameraView: CameraView = {
+  name: "credits",
+  position: new Vector3(6.177, 0.376, -4.407),
+  direction: new Vector3(-0.582, 0.813, 0.011),
+  fov: 65,
+};
 
 export const cameraViews: CameraView[] = [
   welcomeCameraView,
   welcome2CameraView,
   aboutCameraView,
   drawerCameraView,
+  creditsCameraView,
   contactCameraView,
 ];

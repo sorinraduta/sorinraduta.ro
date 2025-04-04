@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components {
+  .credits-text {
+    @apply text-[#2a1b13] relative after:content-[attr(data-text)] after:absolute after:left-0 after:top-0 after:text-[#00000033] after:-translate-x-[1px] after:-translate-y-[1px] after:z-[-1];
+  }
+}

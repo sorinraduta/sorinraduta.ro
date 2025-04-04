@@ -9,6 +9,7 @@ import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
 import ClipboardModel from "./ClipboardModel";
 import ContactFormModel from "./ContactFormModel";
+import CreditsModel from "./CreditsModel";
 import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
 import OfficeModel from "./OfficeModel";
@@ -53,12 +54,10 @@ export default function OfficeViewer() {
 
           <MacBookModel />
           <ContactFormModel />
+
+          <CreditsModel />
         </Suspense>
       </Canvas>
     </div>
   );
 }
-
-// Credits
-// "Non-Realistic Clipboard" (https://skfb.ly/p9q7H) by kareem.noureddine02 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-// "macbook pro M3 16 inch 2024" (https://skfb.ly/oQJZu) by jackbaeten is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

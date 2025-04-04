@@ -43,8 +43,10 @@ const useCameraStore = create<CameraState>((set) => ({
     }),
   setView: (viewName: string) =>
     set(() => ({
-      cameraView: cameraViews.find((view) => view.name === viewName),
-      cameraViewIndex: cameraViews.findIndex((view) => view.name === viewName),
+      cameraView:
+        cameraViews.find((view) => view.name === viewName) || cameraViews[0],
+      cameraViewIndex:
+        cameraViews.findIndex((view) => view.name === viewName) || 0,
     })),
 }));
 

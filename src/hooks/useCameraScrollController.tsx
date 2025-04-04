@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { DEBUG } from "../config/env";
 import { throttle } from "../utils/throttle";
 import useCameraStore from "./useCameraStore";
 
@@ -11,7 +12,7 @@ export function useCameraScrollController() {
 
   const handleWheel = useCallback(
     (event: WheelEvent) => {
-      if (isLocked.current) return;
+      if (isLocked.current || DEBUG) return;
 
       const delta = event.deltaY;
 
