@@ -11,22 +11,24 @@ const credits = [
 
 export default function Credits() {
   return (
-    <div className="flex flex-col bg-transparent text-[#F5EBDD] gap-4 w-[500px] h-[500px] pl-20 pt-20">
+    <div className="flex flex-col text-[#F5EBDD] gap-4 w-[700px] h-[500px] pl-20 pt-20 bg-transparent">
       <h1 className="text-2xl font-bold credits-text" data-text="Credits">
         Credits
       </h1>
       <div className="flex flex-col gap-2">
         {credits.map((credit) => (
-          <a
-            key={credit.url}
-            href={credit.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="credits-text"
-            data-text={credit.name}
-          >
-            {credit.name}
-          </a>
+          <div>
+            <a
+              key={credit.url}
+              href={credit.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="credits-text"
+              data-text={credit.name}
+            >
+              {credit.name}
+            </a>
+          </div>
         ))}
       </div>
     </div>

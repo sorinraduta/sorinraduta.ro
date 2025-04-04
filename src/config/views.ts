@@ -53,10 +53,10 @@ const creditsCameraView: CameraView = {
 };
 
 export const cameraViews: CameraView[] = [
+  creditsCameraView,
   welcomeCameraView,
   welcome2CameraView,
   aboutCameraView,
   drawerCameraView,
-  creditsCameraView,
   contactCameraView,
 ];

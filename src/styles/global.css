@@ -2,6 +2,6 @@
 
 @layer components {
   .credits-text {
-    @apply text-[#2a1b13] relative after:content-[attr(data-text)] after:absolute after:left-0 after:top-0 after:text-[#00000033] after:-translate-x-[1px] after:-translate-y-[1px] after:z-[-1];
+    @apply font-[EB_Garamond] uppercase blur-[0.3px] text-transparent bg-clip-text bg-gradient-to-b from-[#2d1a0b] to-[#0d0602] [text-shadow:0_1px_1px_rgba(255,255,255,0.04),0_-1px_1px_rgba(0,0,0,0.4)] font-semibold tracking-wide text-base opacity-95;
   }
 }
