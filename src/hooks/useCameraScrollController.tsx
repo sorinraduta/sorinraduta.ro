@@ -3,7 +3,7 @@ import { DEBUG } from "../config/env";
 import useCameraStore from "./useCameraStore";
 
 const SCENE_COOLDOWN = 1000;
-const TOUCH_SENSITIVITY = 30;
+const TOUCH_SENSITIVITY = 20;
 
 export function useCameraScrollController() {
   const isLocked = useRef(false);
