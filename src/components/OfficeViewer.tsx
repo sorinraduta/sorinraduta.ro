@@ -5,7 +5,6 @@ import { DEBUG } from "../config/env";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import useCameraStore from "../hooks/useCameraStore";
 import { useResetScroll } from "../hooks/useResetScroll";
-import useStopScrollOnViewChange from "../hooks/useStopScrollOnViewChange";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
 import ClipboardModel from "./ClipboardModel";
@@ -18,7 +17,6 @@ export default function OfficeViewer() {
   const { cameraView } = useCameraStore();
 
   useResetScroll();
-  useStopScrollOnViewChange();
   useCameraScrollController();
 
   return (
