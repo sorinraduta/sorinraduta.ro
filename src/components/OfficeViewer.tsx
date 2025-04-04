@@ -21,13 +21,7 @@ export default function OfficeViewer() {
   useCameraScrollController();
 
   return (
-    <div
-      style={{
-        height: "500vh",
-        overflowY: "scroll",
-        backgroundColor: "grey",
-      }}
-    >
+    <div style={{ height: "100vh", overflow: "hidden" }}>
       <Canvas
         camera={cameraView}
         style={{
