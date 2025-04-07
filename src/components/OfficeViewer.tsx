@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { DEBUG } from "../config/env";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import useCameraStore from "../hooks/useCameraStore";
+import { useDisableZoom } from "../hooks/useDisableZoom";
 import { useResetScroll } from "../hooks/useResetScroll";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
@@ -19,6 +20,7 @@ export default function OfficeViewer() {
 
   useResetScroll();
   useCameraScrollController();
+  useDisableZoom();
 
   return (
     <div style={{ height: "100%", overflow: "hidden" }}>
