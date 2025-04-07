@@ -93,8 +93,9 @@ export default function About() {
         <p className="text-xs text-gray-700">
           Software engineer passionate about crafting clean, maintainable code.
           This interactive space reflects my approach to balancing technical
-          expertise with creative experiences. I continuously refine my skills
-          while bringing a fresh perspective to every project I undertake.
+          expertise with creative experiences.
+          <br />I continuously refine my skills while bringing a fresh
+          perspective to every project I undertake.
         </p>
       </div>
 

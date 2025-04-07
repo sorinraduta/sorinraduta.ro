@@ -1,8 +1,10 @@
 ---
 import OfficeViewer from '../components/OfficeViewer';
+import { SEOContent } from '../components/SEOContent';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+	<SEOContent />
 	<OfficeViewer client:only="react" />
 </Layout>
