@@ -91,10 +91,10 @@ export default function About() {
       <div className="mb-5">
         <h3 className="font-semibold mb-2 text-gray-800">Bio</h3>
         <p className="text-xs text-gray-700">
-          Software engineer with a passion for building impactful solutions. I
-          focus on creating elegant, efficient systems that solve real-world
-          problems. Continuously learning and adapting to new technologies while
-          keeping the end-user experience at the forefront.
+          Software engineer passionate about crafting clean, maintainable code.
+          This interactive space reflects my approach to balancing technical
+          expertise with creative experiences. I continuously refine my skills
+          while bringing a fresh perspective to every project I undertake.
         </p>
       </div>
 
