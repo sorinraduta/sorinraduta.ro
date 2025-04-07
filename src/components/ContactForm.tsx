@@ -20,10 +20,22 @@ export default function FormComponent() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(formData);
 
-    setIsSubmitting(false);
-    setSubmitted(true);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    } else {
+      setIsSubmitting(false);
+    }
 
     setTimeout(() => {
       setSubmitted(false);
