@@ -7,6 +7,10 @@ const credits = [
     name: "Macbook pro M3 16 inch 2024 by jackbaeten",
     url: "https://skfb.ly/oQJZu",
   },
+  {
+    name: "Black coffee mug by cgboyabhay",
+    url: "https://skfb.ly/oCzO7",
+  },
 ];
 
 export default function Credits() {

@@ -13,6 +13,7 @@ import ContactFormModel from "./ContactFormModel";
 import CreditsModel from "./CreditsModel";
 import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
+import MugModel from "./MugModel";
 import OfficeModel from "./OfficeModel";
 
 export default function OfficeViewer() {
@@ -32,7 +33,6 @@ export default function OfficeViewer() {
           left: 0,
           width: "100%",
           height: "100%",
-          pointerEvents: DEBUG ? "auto" : "none",
         }}
       >
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
@@ -52,6 +52,8 @@ export default function OfficeViewer() {
           <ContactFormModel />
 
           <CreditsModel />
+
+          <MugModel />
         </Suspense>
       </Canvas>
     </div>
