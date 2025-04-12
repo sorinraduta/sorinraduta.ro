@@ -11,6 +11,7 @@ export default function ContactFormModel() {
         distanceFactor={1}
         transform
         occlude
+        style={{ transform: "translateZ(0)" }}
       >
         <ContactForm />
       </Html>

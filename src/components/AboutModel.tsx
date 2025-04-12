@@ -11,6 +11,7 @@ export default function AboutModel() {
         distanceFactor={3}
         transform
         occlude
+        style={{ transform: "translateZ(0)" }}
       >
         <About />
       </Html>
