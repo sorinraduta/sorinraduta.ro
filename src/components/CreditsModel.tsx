@@ -3,18 +3,15 @@ import Credits from "./Credits";
 
 export default function CreditsModel() {
   return (
-    <>
-      <Html
-        position={[6, 0.746, -4.35]}
-        rotation={[1.57, 0, -1.56]}
-        scale={0.1}
-        distanceFactor={2}
-        transform
-        occlude
-        style={{ transform: "translateZ(0)" }}
-      >
-        <Credits />
-      </Html>
-    </>
+    <Html
+      position={[6, 0.746, -4.35]}
+      rotation={[1.57, 0, -1.56]}
+      scale={0.1}
+      distanceFactor={2}
+      transform
+      occlude
+    >
+      <Credits />
+    </Html>
   );
 }

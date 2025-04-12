@@ -37,13 +37,9 @@ export default function OfficeViewer() {
             width: "100%",
             height: "100%",
           }}
-          onCreated={({ gl }) => {
-            gl.setPixelRatio(window.devicePixelRatio);
-            gl.setSize(window.innerWidth, window.innerHeight);
-          }}
         >
           <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
-          <Suspense fallback={null}>
+          <Suspense fallback={"Loading..."}>
             <Environment preset="apartment" />
             <CameraController
               position={cameraView.position}
