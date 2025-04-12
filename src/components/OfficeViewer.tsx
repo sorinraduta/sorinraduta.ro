@@ -9,6 +9,7 @@ import { useResetScroll } from "../hooks/useResetScroll";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
 import ClipboardModel from "./ClipboardModel";
+import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
 import CreditsModel from "./CreditsModel";
 import LogCameraPosition from "./LogCameraPosition";
@@ -54,6 +55,7 @@ export default function OfficeViewer() {
           <CreditsModel />
 
           <MugModel />
+          <ClockModel />
         </Suspense>
       </Canvas>
     </div>

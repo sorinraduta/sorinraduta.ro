@@ -11,6 +11,10 @@ const credits = [
     name: "Black coffee mug by cgboyabhay",
     url: "https://skfb.ly/oCzO7",
   },
+  {
+    name: "Modern Design Large Wall Clock 02 by HQ3DMOD",
+    url: "https://skfb.ly/oy6nT",
+  },
 ];
 
 export default function Credits() {

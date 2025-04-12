@@ -145,7 +145,7 @@ export default function FormComponent() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3.5 rounded-xl text-[17px] font-semibold text-white ${
+                className={`w-full py-3.5 rounded-xl text-[17px] font-semibold text-white cursor-pointer ${
                   isSubmitting ? "bg-[#30D158]/70" : "bg-[#30D158]"
                 } shadow-md active:bg-[#2BC153] transition-colors`}
               >
