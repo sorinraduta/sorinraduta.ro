@@ -1,7 +1,14 @@
 import { Html } from "@react-three/drei";
+import { useEffect } from "react";
 import Credits from "./Credits";
 
 export default function CreditsModel() {
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("resize"));
+    });
+  }, []);
+
   return (
     <Html
       position={[6, 0.746, -4.35]}
@@ -10,6 +17,8 @@ export default function CreditsModel() {
       distanceFactor={2}
       transform
       occlude
+      center
+      style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <Credits />
     </Html>

@@ -8,7 +8,6 @@ import { useDisableZoom } from "../hooks/useDisableZoom";
 import { useResetScroll } from "../hooks/useResetScroll";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
-import { CanvasWrapper } from "./CanvasWrapper";
 import ClipboardModel from "./ClipboardModel";
 import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
@@ -26,30 +25,35 @@ export default function OfficeViewer() {
   useDisableZoom();
 
   return (
-    <CanvasWrapper>
-      <Canvas camera={cameraView}>
+    <Suspense fallback={"Loading..."}>
+      <Canvas
+        style={{ position: "absolute", top: 0, left: 0 }}
+        camera={cameraView}
+        onCreated={({ gl }) => {
+          gl.setPixelRatio(window.devicePixelRatio);
+          gl.setSize(window.innerWidth, window.innerHeight);
+        }}
+      >
+        <Environment preset="apartment" />
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
-        <Suspense fallback={"Loading..."}>
-          <Environment preset="apartment" />
-          <CameraController
-            position={cameraView.position}
-            direction={cameraView.direction}
-          />
-          {DEBUG && <LogCameraPosition />}
-          <OfficeModel />
+        <CameraController
+          position={cameraView.position}
+          direction={cameraView.direction}
+        />
+        {DEBUG && <LogCameraPosition />}
+        <OfficeModel />
 
-          <ClipboardModel />
-          <AboutModel />
+        <ClipboardModel />
+        <AboutModel />
 
-          <MacBookModel />
-          <ContactFormModel />
+        <MacBookModel />
+        <ContactFormModel />
 
-          <CreditsModel />
+        <CreditsModel />
 
-          <MugModel />
-          <ClockModel />
-        </Suspense>
+        <MugModel />
+        <ClockModel />
       </Canvas>
-    </CanvasWrapper>
+    </Suspense>
   );
 }

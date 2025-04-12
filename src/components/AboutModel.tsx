@@ -1,7 +1,14 @@
 import { Html } from "@react-three/drei";
+import { useEffect } from "react";
 import About from "./About";
 
 export default function AboutModel() {
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("resize"));
+    });
+  }, []);
+
   return (
     <Html
       position={[4.203, 0.819, -4.813]}
@@ -10,6 +17,8 @@ export default function AboutModel() {
       distanceFactor={3}
       transform
       occlude
+      center
+      style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <About />
     </Html>
