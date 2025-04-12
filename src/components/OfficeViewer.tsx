@@ -8,6 +8,7 @@ import { useDisableZoom } from "../hooks/useDisableZoom";
 import { useResetScroll } from "../hooks/useResetScroll";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
+import { CanvasWrapper } from "./CanvasWrapper";
 import ClipboardModel from "./ClipboardModel";
 import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
@@ -26,42 +27,44 @@ export default function OfficeViewer() {
 
   return (
     <div style={{ height: "100%", overflow: "hidden" }}>
-      <Canvas
-        camera={cameraView}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
-        onCreated={({ gl }) => {
-          gl.setPixelRatio(window.devicePixelRatio);
-          gl.setSize(window.innerWidth, window.innerHeight);
-        }}
-      >
-        <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
-        <Suspense fallback={null}>
-          <Environment preset="apartment" />
-          <CameraController
-            position={cameraView.position}
-            direction={cameraView.direction}
-          />
-          {DEBUG && <LogCameraPosition />}
-          <OfficeModel />
+      <CanvasWrapper>
+        <Canvas
+          camera={cameraView}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          onCreated={({ gl }) => {
+            gl.setPixelRatio(window.devicePixelRatio);
+            gl.setSize(window.innerWidth, window.innerHeight);
+          }}
+        >
+          <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
+          <Suspense fallback={null}>
+            <Environment preset="apartment" />
+            <CameraController
+              position={cameraView.position}
+              direction={cameraView.direction}
+            />
+            {DEBUG && <LogCameraPosition />}
+            <OfficeModel />
 
-          <ClipboardModel />
-          <AboutModel />
+            <ClipboardModel />
+            <AboutModel />
 
-          <MacBookModel />
-          <ContactFormModel />
+            <MacBookModel />
+            <ContactFormModel />
 
-          <CreditsModel />
+            <CreditsModel />
 
-          <MugModel />
-          <ClockModel />
-        </Suspense>
-      </Canvas>
+            <MugModel />
+            <ClockModel />
+          </Suspense>
+        </Canvas>
+      </CanvasWrapper>
     </div>
   );
 }
