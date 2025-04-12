@@ -17,7 +17,7 @@ export default function AboutModel() {
       distanceFactor={3}
       transform
       occlude
-      center
+      fullscreen
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <About />
