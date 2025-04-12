@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei";
-import { useEffect } from "react";
+import { useEffect, type RefObject } from "react";
 import About from "./About";
+import { htmlOverlayRef } from "./htmlOverlayRef";
 
 export default function AboutModel() {
   useEffect(() => {
@@ -9,8 +10,13 @@ export default function AboutModel() {
     });
   }, []);
 
+  const ref = htmlOverlayRef;
+
+  if (!ref) return null;
+
   return (
     <Html
+      portal={ref as RefObject<HTMLElement>}
       position={[4.203, 0.819, -4.813]}
       rotation={[1.55, 3.15, -0.291]}
       scale={0.08}

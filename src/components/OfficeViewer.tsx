@@ -1,6 +1,6 @@
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useRef, useEffect } from "react";
 import { DEBUG } from "../config/env";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import useCameraStore from "../hooks/useCameraStore";
@@ -17,6 +17,7 @@ import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
 import MugModel from "./MugModel";
 import OfficeModel from "./OfficeModel";
+import { htmlOverlayRef } from "./htmlOverlayRef";
 
 export default function OfficeViewer() {
   const { cameraView } = useCameraStore();
@@ -25,8 +26,24 @@ export default function OfficeViewer() {
   useCameraScrollController();
   useDisableZoom();
 
+  const internalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    htmlOverlayRef.current = internalRef.current;
+  }, []);
+
   return (
     <Suspense fallback={"Loading..."}>
+      <div
+        ref={internalRef}
+        id="html-overlay-root"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 1000,
+        }}
+      />
       <CanvasWrapper>
         <Canvas
           style={{ position: "absolute", top: 0, left: 0 }}
