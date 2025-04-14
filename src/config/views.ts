@@ -51,8 +51,15 @@ const creditsCameraView: CameraView = {
   direction: new Vector3(-0.582, 0.813, 0.011),
   fov: 65,
 };
+const testDrawerCameraView: CameraView = {
+  name: "credits",
+  position: new Vector3(3.102, 1.131, -5.281),
+  direction: new Vector3(0.726, -0.56, 0.4),
+  fov: 65,
+};
 
 export const cameraViews: CameraView[] = [
+  testDrawerCameraView,
   welcomeCameraView,
   welcome2CameraView,
   aboutCameraView,

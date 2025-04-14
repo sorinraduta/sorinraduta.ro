@@ -17,8 +17,6 @@ export default function CreditsModel() {
       distanceFactor={2}
       transform
       occlude
-      fullscreen
-      style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <Credits />
     </Html>

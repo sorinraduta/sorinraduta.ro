@@ -17,8 +17,6 @@ export default function ContactFormModel() {
       distanceFactor={1}
       transform
       occlude
-      fullscreen
-      style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <ContactForm />
     </Html>

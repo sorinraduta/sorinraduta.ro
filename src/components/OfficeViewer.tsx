@@ -1,6 +1,6 @@
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useEffect } from "react";
+import { Suspense } from "react";
 import { DEBUG } from "../config/env";
 import { useCameraScrollController } from "../hooks/useCameraScrollController";
 import useCameraStore from "../hooks/useCameraStore";
@@ -8,7 +8,6 @@ import { useDisableZoom } from "../hooks/useDisableZoom";
 import { useResetScroll } from "../hooks/useResetScroll";
 import AboutModel from "./AboutModel";
 import CameraController from "./CameraController";
-import { CanvasWrapper } from "./CanvasWrapper";
 import ClipboardModel from "./ClipboardModel";
 import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
@@ -17,7 +16,6 @@ import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
 import MugModel from "./MugModel";
 import OfficeModel from "./OfficeModel";
-import { htmlOverlayRef } from "./htmlOverlayRef";
 
 export default function OfficeViewer() {
   const { cameraView } = useCameraStore();
@@ -26,54 +24,29 @@ export default function OfficeViewer() {
   useCameraScrollController();
   useDisableZoom();
 
-  const internalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    htmlOverlayRef.current = internalRef.current;
-  }, []);
-
   return (
     <Suspense fallback={"Loading..."}>
-      <div
-        ref={internalRef}
-        id="html-overlay-root"
-        style={{
-          position: 'fixed',
-          inset: 0,
-          pointerEvents: 'none',
-          zIndex: 1000,
-        }}
-      />
-      <CanvasWrapper>
-        <Canvas
-          style={{ position: "absolute", top: 0, left: 0 }}
-          camera={cameraView}
-          onCreated={({ gl }) => {
-            gl.setPixelRatio(window.devicePixelRatio);
-            gl.setSize(window.innerWidth, window.innerHeight);
-          }}
-        >
-          <Environment preset="apartment" />
-          <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
-          <CameraController
-            position={cameraView.position}
-            direction={cameraView.direction}
-          />
-          {DEBUG && <LogCameraPosition />}
-          <OfficeModel />
+      <Canvas camera={cameraView}>
+        <Environment preset="apartment" />
+        <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
+        <CameraController
+          position={cameraView.position}
+          direction={cameraView.direction}
+        />
+        {DEBUG && <LogCameraPosition />}
+        <OfficeModel />
 
-          <ClipboardModel />
-          <AboutModel />
+        <ClipboardModel />
+        <AboutModel />
 
-          <MacBookModel />
-          <ContactFormModel />
+        <MacBookModel />
+        <ContactFormModel />
 
-          <CreditsModel />
+        <CreditsModel />
 
-          <MugModel />
-          <ClockModel />
-        </Canvas>
-      </CanvasWrapper>
+        <MugModel />
+        <ClockModel />
+      </Canvas>
     </Suspense>
   );
 }
