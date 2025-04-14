@@ -2,7 +2,7 @@ import { Vector3 } from "three";
 
 export type CameraViewName =
   | "welcome"
-  | "welcome2"
+  | "clock"
   | "about"
   | "contact"
   | "drawer"
@@ -21,8 +21,8 @@ export const welcomeCameraView: CameraView = {
   direction: new Vector3(0.417, -0.236, -0.877),
   fov: 65,
 };
-const welcome2CameraView: CameraView = {
-  name: "welcome2",
+const clockCameraView: CameraView = {
+  name: "clock",
   position: new Vector3(6.485, 1.265, -1.335),
   direction: new Vector3(-0.485, -0.167, -0.858),
   fov: 65,
@@ -41,8 +41,8 @@ const contactCameraView: CameraView = {
 };
 const drawerCameraView: CameraView = {
   name: "drawer",
-  position: new Vector3(3.745, 0.667, -5.29),
-  direction: new Vector3(0.581, -0.484, 0.654),
+  position: new Vector3(4.813, 1.116, -5.565),
+  direction: new Vector3(-0.493, -0.559, 0.666),
   fov: 65,
 };
 const creditsCameraView: CameraView = {
@@ -51,19 +51,12 @@ const creditsCameraView: CameraView = {
   direction: new Vector3(-0.582, 0.813, 0.011),
   fov: 65,
 };
-const testDrawerCameraView: CameraView = {
-  name: "credits",
-  position: new Vector3(3.102, 1.131, -5.281),
-  direction: new Vector3(0.726, -0.56, 0.4),
-  fov: 65,
-};
 
 export const cameraViews: CameraView[] = [
-  testDrawerCameraView,
   welcomeCameraView,
-  welcome2CameraView,
+  clockCameraView,
   aboutCameraView,
   drawerCameraView,
-  creditsCameraView,
   contactCameraView,
+  creditsCameraView,
 ];

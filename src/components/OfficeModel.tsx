@@ -1,61 +1,61 @@
 import { useSpring } from "@react-spring/three";
 import { useGLTF } from "@react-three/drei";
-import { useMemo, useState } from "react";
-import { Light } from "three";
+import { useFrame } from "@react-three/fiber";
+import { useMemo } from "react";
+import { Group, Light } from "three";
+import useDrawer from "../hooks/useDrawer";
+
+const drawerGroup = new Group();
 
 export default function OfficeModel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { scene, nodes } = useGLTF("/assets/models/office.glb");
-
-  console.log("nodes: ", nodes);
-  console.log("isOpen: ", isOpen);
-
-  window.a = () => {
-    setIsOpen(!isOpen);
-  };
+  const { isOpen } = useDrawer();
+  const { scene } = useGLTF("/assets/models/office.glb");
 
   const { position } = useSpring({
-    position: isOpen
-      ? [4.103, 0.02, -4.27] // opened
-      : [4.103, 0.02, -3.811], // closed
-    config: { mass: 1, tension: 170, friction: 26 },
+    position: isOpen ? [8.205, 0.0, -9.3] : [8.205, 0.0, -8.845],
+    config: { mass: 2, tension: 100, friction: 25 },
   });
 
-  console.log("position: ", position);
+  useFrame(() => {
+    if (drawerGroup && position) {
+      const [x, y, z] = position.get();
+      drawerGroup.position.set(x, y, z);
+    }
+  });
 
   useMemo(() => {
-    console.log("qweposition: ", position);
+    scene.add(drawerGroup);
+
     const folderOutside1 = scene.getObjectByName("Plane");
-    folderOutside1?.rotateY(Math.PI);
-    folderOutside1?.position.set(4.103, 0.02, -4.27);
     const folderInside1 = scene.getObjectByName("Plane001");
-    folderInside1?.rotateY(Math.PI);
-  }, [position]);
+    if (folderOutside1 && folderInside1) {
+      drawerGroup.add(folderOutside1);
+      drawerGroup.add(folderInside1);
+    }
 
-  useMemo(() => {
-    // const folderOutside1 = scene.getObjectByName("Plane");
-    // folderOutside1?.rotateY(Math.PI);
-    // folderOutside1?.position.set(4.103, 0.02, -4.27);
-    // const folderInside1 = scene.getObjectByName("Plane001");
-    // folderInside1?.rotateY(Math.PI);
+    const folderOutside2 = scene.getObjectByName("Plane002");
+    const folderInside2 = scene.getObjectByName("Plane003");
+    if (folderOutside2 && folderInside2) {
+      drawerGroup.add(folderOutside2);
+      drawerGroup.add(folderInside2);
+    }
 
-    // const folderOutside2 = scene.getObjectByName("Plane002");
-    // folderOutside2?.parent?.remove(folderOutside2);
-    // const folderInside2 = scene.getObjectByName("Plane003");
-    // folderInside2?.parent?.remove(folderInside2);
+    const folderOutside3 = scene.getObjectByName("Plane004");
+    const folderInside3 = scene.getObjectByName("Plane005");
+    if (folderOutside3 && folderInside3) {
+      drawerGroup.add(folderOutside3);
+      drawerGroup.add(folderInside3);
+    }
 
-    // const folderOutside3 = scene.getObjectByName("Plane004");
-    // folderOutside3?.parent?.remove(folderOutside3);
-    // const folderInside3 = scene.getObjectByName("Plane005");
-    // folderInside3?.parent?.remove(folderInside3);
+    const upperDrawer = scene.getObjectByName("cabinet_210_03002");
+    if (upperDrawer) {
+      drawerGroup.add(upperDrawer);
+    }
+
+    drawerGroup.rotateY(Math.PI);
 
     const cabinetBody = scene.getObjectByName("cabinet_210_03");
     cabinetBody?.rotateY(Math.PI);
-
-    const upperDrawer = scene.getObjectByName("cabinet_210_03002");
-    upperDrawer?.rotateY(Math.PI);
-    upperDrawer?.position.set(4.103, 0.02, -4.27); // opened
-    upperDrawer?.position.set(4.103, 0.02, -3.811); // closed
 
     const bottomDrawer = scene.getObjectByName("cabinet_210_03001");
     bottomDrawer?.rotateY(Math.PI);
@@ -130,9 +130,5 @@ export default function OfficeModel() {
     });
   }, [scene]);
 
-  return (
-    <>
-      <primitive object={scene} />
-    </>
-  );
+  return <primitive object={scene} />;
 }
