@@ -12,6 +12,7 @@ import ClipboardModel from "./ClipboardModel";
 import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
 import CreditsModel from "./CreditsModel";
+import Loading from "./Loading";
 import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
 import MugModel from "./MugModel";
@@ -25,7 +26,7 @@ export default function OfficeViewer() {
   useDisableZoom();
 
   return (
-    <Suspense fallback={"Loading..."}>
+    <Suspense fallback={<Loading />}>
       <Canvas camera={cameraView}>
         <Environment preset="apartment" />
         <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
