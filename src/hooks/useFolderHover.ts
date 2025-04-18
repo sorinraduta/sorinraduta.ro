@@ -1,5 +1,6 @@
+import { useCursor } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mesh, Raycaster, Vector2 } from "three";
 
 const raycaster = new Raycaster();
@@ -9,7 +10,9 @@ const useFolderHover = () => {
   const { camera, scene } = useThree();
 
   const prevHoveredGroup = useRef<Mesh[]>([]);
-  const currentHoverGroup = useRef<string | null>(null);
+  const [currentHoveredGroup, setCurrentHoveredGroup] = useState<string | null>(
+    null
+  );
   const rafId = useRef<number | null>(null);
 
   const hoverGroups: Record<string, string[]> = {
@@ -20,6 +23,8 @@ const useFolderHover = () => {
     Plane004: ["Plane004", "Plane005"],
     Plane005: ["Plane004", "Plane005"],
   };
+
+  useCursor(!!currentHoveredGroup);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -41,23 +46,16 @@ const useFolderHover = () => {
           }
         });
         prevHoveredGroup.current = [];
-
-        if (intersects.length === 0) {
-          currentHoverGroup.current = null;
-          document.body.style.cursor = "default";
-          return;
-        }
-
         const hovered = intersects[0].object;
         const group = hoverGroups[hovered.name];
-        if (!group) {
-          currentHoverGroup.current = null;
-          document.body.style.cursor = "default";
+
+        if (intersects.length === 0 || !group) {
+          setCurrentHoveredGroup(null);
           return;
         }
 
-        if (currentHoverGroup.current !== hovered.name) {
-          currentHoverGroup.current = hovered.name;
+        if (currentHoveredGroup !== hovered.name) {
+          setCurrentHoveredGroup(hovered.name);
         }
 
         const groupMeshes: Mesh[] = [];
@@ -72,7 +70,6 @@ const useFolderHover = () => {
         });
 
         prevHoveredGroup.current = groupMeshes;
-        document.body.style.cursor = "pointer";
       });
     };
 

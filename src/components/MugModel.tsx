@@ -5,6 +5,7 @@ import { links } from "../config/links";
 export default function MugModel() {
   const { scene } = useGLTF("/assets/models/mug.glb");
   const [hovered, setHovered] = useState(false);
+
   useCursor(hovered);
 
   scene.scale.set(0.15, 0.15, 0.15);
