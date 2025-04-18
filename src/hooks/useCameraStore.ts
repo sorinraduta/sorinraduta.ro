@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import {
   cameraViews,
+  initialCameraView,
   type CameraView,
   type CameraViewName,
 } from "../config/views";
@@ -15,8 +16,8 @@ interface CameraState {
 }
 
 const useCameraStore = create<CameraState>((set) => ({
-  cameraView: cameraViews[0],
-  cameraViewIndex: 0,
+  cameraView: initialCameraView,
+  cameraViewIndex: -1,
   setCameraViewIndex: (index: number) =>
     set(() => ({
       cameraViewIndex: index,

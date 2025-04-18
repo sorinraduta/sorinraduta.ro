@@ -1,6 +1,7 @@
 import { Vector3 } from "three";
 
 export type CameraViewName =
+  | "initial"
   | "welcome"
   | "clock"
   | "about"
@@ -13,6 +14,13 @@ export type CameraView = {
   position: Vector3;
   direction: Vector3;
   fov: number;
+};
+
+export const initialCameraView: CameraView = {
+  name: "initial",
+  position: new Vector3(4.845, 2.174, -2.038),
+  direction: new Vector3(0.005, -0.485, -0.875),
+  fov: 65,
 };
 
 export const welcomeCameraView: CameraView = {

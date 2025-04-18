@@ -12,6 +12,7 @@ import ClipboardModel from "./ClipboardModel";
 import ClockModel from "./ClockModel";
 import ContactFormModel from "./ContactFormModel";
 import CreditsModel from "./CreditsModel";
+import IntroCameraAnimation from "./IntroCameraAnimation";
 import Loading from "./Loading";
 import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
@@ -35,6 +36,7 @@ export default function OfficeViewer() {
           direction={cameraView.direction}
         />
         {DEBUG && <LogCameraPosition />}
+        <IntroCameraAnimation />
         <OfficeModel />
 
         <ClipboardModel />
