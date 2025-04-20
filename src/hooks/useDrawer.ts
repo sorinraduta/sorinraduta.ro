@@ -14,8 +14,8 @@ const folderNames = [
   "Plane004",
   "Plane005",
 ];
-const folderColor = "#b18e3e";
-const paperColor = "#a8ada9";
+const folderColor = "#f5d13d";
+const paperColor = "#f5f5f0";
 const drawerGroup = new Group();
 
 const useDrawer = (scene: Group<Object3DEventMap>) => {
@@ -52,6 +52,7 @@ const useDrawer = (scene: Group<Object3DEventMap>) => {
       ((folderInside1 as Mesh).material as any).color.set(paperColor);
       ((folderInside1 as Mesh).material as any).metalness = 0.2;
       ((folderInside1 as Mesh).material as any).roughness = 0.4;
+      ((folderOutside1 as Mesh).material as any).roughness = 1;
 
       drawerGroup.add(folderOutside1);
       drawerGroup.add(folderInside1);
@@ -64,6 +65,7 @@ const useDrawer = (scene: Group<Object3DEventMap>) => {
       ((folderInside2 as Mesh).material as any).color.set(paperColor);
       ((folderInside2 as Mesh).material as any).metalness = 0.2;
       ((folderInside2 as Mesh).material as any).roughness = 0.4;
+      ((folderOutside2 as Mesh).material as any).roughness = 1;
 
       drawerGroup.add(folderOutside2);
       drawerGroup.add(folderInside2);
@@ -76,6 +78,7 @@ const useDrawer = (scene: Group<Object3DEventMap>) => {
       ((folderInside3 as Mesh).material as any).color.set(paperColor);
       ((folderInside3 as Mesh).material as any).metalness = 0.2;
       ((folderInside3 as Mesh).material as any).roughness = 0.4;
+      ((folderOutside3 as Mesh).material as any).roughness = 1;
 
       drawerGroup.add(folderOutside3);
       drawerGroup.add(folderInside3);

@@ -34,8 +34,7 @@ export default function OfficeViewer() {
         {...helpText[cameraViewIndex === -1 ? 0 : cameraViewIndex]}
       />
       <Canvas camera={cameraView}>
-        <Environment preset="apartment" />
-        <ambientLight intensity={1} position={[4.11, 2.98, -2.7]} />
+        <Environment files="/assets/HDRIs/office.hdr" />
         <CameraController
           position={cameraView.position}
           direction={cameraView.direction}
