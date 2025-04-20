@@ -8,9 +8,31 @@ export const POST: APIRoute = async ({ request }) => {
   const name = formData.name;
   const email = formData.email;
   const message = formData.message;
+  const captchaToken = formData.captchaToken;
 
-  if (!email || !message || !name) {
+  if (!email || !message || !name || !captchaToken) {
     return new Response("Missing fields", { status: 400 });
+  }
+
+  const secret = import.meta.env.TURNSTILE_SECRET_KEY;
+  const captchaRes = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret,
+        response: captchaToken,
+      }),
+    }
+  );
+
+  const captchaJson = await captchaRes.json();
+
+  if (!captchaJson.success) {
+    return new Response(JSON.stringify({ error: "CAPTCHA failed" }), {
+      status: 400,
+    });
   }
 
   const { error } = await resend.emails.send({

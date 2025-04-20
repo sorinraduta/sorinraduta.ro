@@ -1,4 +1,7 @@
+import { Turnstile } from "@marsidev/react-turnstile";
 import { useState } from "react";
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function FormComponent() {
   const [formData, setFormData] = useState({
@@ -6,8 +9,9 @@ export default function FormComponent() {
     email: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,14 +24,12 @@ export default function FormComponent() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    console.log(formData);
-
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, captchaToken }),
     });
 
     if (res.ok) {
@@ -141,6 +143,11 @@ export default function FormComponent() {
                   </div>
                 </div>
               </div>
+
+              <Turnstile
+                siteKey={turnstileSiteKey}
+                onSuccess={setCaptchaToken}
+              />
 
               <button
                 type="submit"
