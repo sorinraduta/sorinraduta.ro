@@ -1,4 +1,5 @@
 export const links = {
+  this: "https://sorinraduta.ro",
   twitter: "https://x.com/sorinraduta",
   linkedin: "https://www.linkedin.com/in/sorinraduta/",
   github: "https://github.com/sorinraduta",
