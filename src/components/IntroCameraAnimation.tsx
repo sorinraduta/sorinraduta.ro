@@ -11,7 +11,7 @@ const IntroCameraAnimation = () => {
 
     const to = setTimeout(() => {
       setCameraViewIndex(0);
-    }, 1000);
+    }, 600);
 
     return () => clearTimeout(to);
   }, []);

@@ -4,4 +4,5 @@ export const links = {
   github: "https://github.com/sorinraduta",
   email: "mailto:sorinradutaa@gmail.com",
   disconnect: "https://disconnect.ro",
+  1337: "https://en.wikipedia.org/wiki/Leet",
 };
