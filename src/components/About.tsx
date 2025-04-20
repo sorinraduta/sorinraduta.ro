@@ -122,7 +122,7 @@ export default function About() {
           {hobbies.map((hobby, index) => (
             <div
               key={index}
-              className="flex items-center gap-1.5 text-xs bg-gray-300 px-2 py-1 rounded-full"
+              className="flex items-center gap-1.5 text-xs bg-gray-100/80 px-2 py-1 rounded-full"
             >
               <span>{hobby.emoji}</span>
               <span>{hobby.name}</span>
