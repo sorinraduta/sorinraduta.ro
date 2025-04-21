@@ -12,7 +12,7 @@ export const helpText = [
       <p>
         Certain elements are interactive. Clicking on them will trigger their
         functionality. For example, a click on the clock will take you to the
-        next section.{" "}
+        next view.{" "}
         <a
           href={links["1337"]}
           target="_blank"
