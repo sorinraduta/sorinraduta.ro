@@ -1,7 +1,7 @@
 const credits = [
   {
     name: "Office Interior Scene by Harsh Srivastava",
-    url: "https://superhivemarket.com/products/office-interior-scene",
+    url: "https://superhivemarket.com/creators/harshstv",
   },
   {
     name: "Non-Realistic Clipboard by kareem.noureddine02",
