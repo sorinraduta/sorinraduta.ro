@@ -9,7 +9,7 @@ export default function MugModel() {
   useCursor(hovered);
 
   scene.scale.set(0.15, 0.15, 0.15);
-  scene.position.set(4.63, 0.8168, -4.67);
+  scene.position.set(4.615, 0.8168, -4.64);
   scene.rotation.set(0, 4, 0);
 
   useEffect(() => {
