@@ -17,7 +17,7 @@ export const helpText = [
           href={links["1337"]}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#cccccc]"
+          className="text-[#cccccc] block"
         >
           What time is it?
         </a>
