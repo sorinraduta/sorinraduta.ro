@@ -9,7 +9,7 @@ const hobbies = [
   { name: "Karting", emoji: "🏎️" },
   { name: "Traveling", emoji: "✈️" },
   { name: "Target shooting", emoji: "🎯" },
-  { name: "Motocycle", emoji: "🏍️" },
+  { name: "Motorcycle", emoji: "🏍️" },
 ];
 
 const socialLinks = [
