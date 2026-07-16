@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { DEBUG } from "../config/env";
 import useCameraStore from "./useCameraStore";
 
-const SCENE_COOLDOWN = 1000;
+export const SCENE_COOLDOWN = 1000;
 const TOUCH_SENSITIVITY = 20;
 
 export function useCameraScrollController() {
   const isLocked = useRef(false);
   const touchStartY = useRef<number | null>(null);
+  const [isCoolingDown, setIsCoolingDown] = useState(false);
   const { goToNextView, goToPreviousView } = useCameraStore();
 
   const triggerSceneChange = useCallback(
@@ -16,9 +17,11 @@ export function useCameraScrollController() {
 
       direction === "down" ? goToNextView() : goToPreviousView();
       isLocked.current = true;
+      setIsCoolingDown(true);
 
       setTimeout(() => {
         isLocked.current = false;
+        setIsCoolingDown(false);
       }, SCENE_COOLDOWN);
     },
     [goToNextView, goToPreviousView]
@@ -64,4 +67,6 @@ export function useCameraScrollController() {
       window.removeEventListener("touchmove", handleTouchMove);
     };
   }, [handleWheel, handleTouchStart, handleTouchMove]);
+
+  return { isCoolingDown };
 }

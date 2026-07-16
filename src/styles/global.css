@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@keyframes scroll-cooldown-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @layer components {
   .credits-text {
     @apply font-[EB_Garamond] uppercase blur-[0.3px] text-transparent bg-clip-text bg-gradient-to-b from-[#2d1a0b] to-[#0d0602] [text-shadow:0_1px_1px_rgba(255,255,255,0.04),0_-1px_1px_rgba(0,0,0,0.4)] font-semibold tracking-wide text-base opacity-95;

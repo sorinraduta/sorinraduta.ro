@@ -3,7 +3,10 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { DEBUG } from "../config/env";
 import { helpText } from "../config/help-text";
-import { useCameraScrollController } from "../hooks/useCameraScrollController";
+import {
+  SCENE_COOLDOWN,
+  useCameraScrollController,
+} from "../hooks/useCameraScrollController";
 import useCameraStore from "../hooks/useCameraStore";
 import { useDisableZoom } from "../hooks/useDisableZoom";
 import { useResetScroll } from "../hooks/useResetScroll";
@@ -20,12 +23,13 @@ import LogCameraPosition from "./LogCameraPosition";
 import MacBookModel from "./MacBookModel";
 import MugModel from "./MugModel";
 import OfficeModel from "./OfficeModel";
+import ScrollCooldownIndicator from "./ScrollCooldownIndicator";
 
 export default function OfficeViewer() {
   const { cameraView, cameraViewIndex } = useCameraStore();
 
   useResetScroll();
-  useCameraScrollController();
+  const { isCoolingDown } = useCameraScrollController();
   useDisableZoom();
 
   return (
@@ -33,6 +37,7 @@ export default function OfficeViewer() {
       <HelpOverlay
         {...helpText[cameraViewIndex === -1 ? 0 : cameraViewIndex]}
       />
+      <ScrollCooldownIndicator active={isCoolingDown} duration={SCENE_COOLDOWN} />
       <Canvas camera={cameraView}>
         <Environment files="/assets/HDRIs/office.hdr" />
         <CameraController
