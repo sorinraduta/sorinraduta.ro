@@ -1,0 +1,24 @@
+# Sorin Raduta
+
+> Software engineer who builds systems that scale, using AI to move faster without cutting corners.
+
+This site is an interactive 3D office. It has no traditional sub-pages — everything below lives on the single page at https://sorinraduta.ro/, split across clickable objects in the scene (a laptop for contact, a clipboard for bio, folders for projects, a clock for credits).
+
+## About
+
+Sorin Raduta is a software engineer focused on designing systems that hold up under real-world scale, using AI tools to build them faster without cutting corners on quality. Currently open to work.
+
+Core skills: JavaScript, TypeScript, React, Node.js, system design, and applying AI/LLM tooling to software engineering workflows.
+
+## Projects
+
+- Sepolia Faucet Automation — automated Sepolia testnet ETH faucet requests: https://github.com/sorinraduta/sepolia-faucet-automation
+- Matrix Patterns — formulas for building matrix patterns: https://github.com/sorinraduta/Matrix-patterns
+
+## Contact & links
+
+- Email: sorinradutaa@gmail.com
+- GitHub: https://github.com/sorinraduta
+- LinkedIn: https://www.linkedin.com/in/sorinraduta/
+- X (Twitter): https://x.com/sorinraduta
+- Contact form: https://sorinraduta.ro/ (click the laptop in the 3D scene)

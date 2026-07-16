@@ -108,11 +108,8 @@ export default function About() {
       <div className="mb-5">
         <h3 className="font-semibold mb-2 text-gray-800">Bio</h3>
         <p className="text-xs text-gray-700">
-          I'm a software engineer who builds systems meant to hold up under
-          real-world scale and change, using AI to move faster without
-          cutting corners on quality.
-          <br />This interactive space reflects how I like to work: technical
-          rigor paired with a bit of creative experimentation.
+          I'm a software engineer who builds systems that scale, using AI to
+          move faster without cutting corners.
         </p>
       </div>
 

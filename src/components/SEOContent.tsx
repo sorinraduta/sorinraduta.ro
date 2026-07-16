@@ -1,3 +1,4 @@
+import { faqs } from "../config/faqs";
 import { links } from "../config/links";
 import About from "./About";
 import ContactForm from "./ContactForm";
@@ -54,6 +55,15 @@ export const SEOContent = () => {
         </section>
         <section aria-label="Contact">
           <ContactForm />
+        </section>
+        <section aria-label="Frequently Asked Questions">
+          <h2>FAQ</h2>
+          {faqs.map((faq) => (
+            <div key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
         </section>
         <footer aria-label="Credits">
           <Credits />

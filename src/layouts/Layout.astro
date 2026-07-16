@@ -1,5 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import { faqs } from '../config/faqs';
 import "../styles/global.css";
 ---
 
@@ -62,6 +63,18 @@ import "../styles/global.css";
 					"name": "Sorin Raduta | Software Engineer",
 					"description": "Personal website and portfolio of Sorin Raduta, an interactive 3D office showcasing projects, bio, and contact information.",
 					"author": { "@id": "https://sorinraduta.ro/#person" }
+				},
+				{
+					"@type": "FAQPage",
+					"@id": "https://sorinraduta.ro/#faq",
+					"mainEntity": faqs.map((faq) => ({
+						"@type": "Question",
+						"name": faq.question,
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": faq.answer,
+						},
+					})),
 				}
 			]
 		})} />
