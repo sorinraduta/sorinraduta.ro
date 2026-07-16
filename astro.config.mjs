@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
+  site: "https://sorinraduta.ro",
   adapter: vercel(),
   integrations: [react()],
   vite: {

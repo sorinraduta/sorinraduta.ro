@@ -48,7 +48,7 @@ export default function FormComponent() {
   return (
     <div className="bg-[#060402] h-[860px] w-[1310px] text-white flex flex-col overflow-hidden rounded-xl">
       <div className="w-full py-4 px-4 bg-[#060402] border-b border-[#1c1c1c] flex items-center justify-center">
-        <h1 className="text-[22px] font-semibold text-white">Contact</h1>
+        <h2 className="text-[22px] font-semibold text-white">Contact</h2>
       </div>
 
       <div className="flex-1 overflow-auto px-4 flex items-center justify-center">
